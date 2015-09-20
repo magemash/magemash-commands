@@ -1,5 +1,5 @@
 {
-  "name": "scopri/magemash-commands",
+  "name": "magemash/magemash-commands",
   "license": "GPL-3.0",
   "type": "magento-module",
   "description": "various shell scripts for Magento",
