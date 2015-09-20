@@ -1,0 +1,20 @@
+{
+  "name": "scopri/magemash-commands",
+  "license": "GPL-3.0",
+  "type": "magento-module",
+  "description": "various shell scripts for Magento",
+  "homepage": "https://github.com/magemash/magemash-commands",
+  "require": {
+    "php": ">=5.3"
+  },
+  "authors": [
+    {
+      "name": "Scott Pringle",
+      "email": "scott@getcommerce.com",
+      "role": "Author/Maintainer"
+    }
+  ],
+  "autoload" : {
+    "psr-4": { "MagentoCommand\\": "" }
+  }
+}
