@@ -20,6 +20,7 @@ class VisCommand extends AbstractCommand
     {
         $this
             ->setName('magemash:vis')
+            ->setDescription('Sets visibility of all child products to hidden')
         ;
     }
 

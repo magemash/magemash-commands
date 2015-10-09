@@ -21,7 +21,8 @@ class ConfigCommand extends AbstractCommand
     protected function configure()
     {
         $this
-            ->setName('magemash:config');
+            ->setName('magemash:config')
+            ->setDescription('Resets configuration with with settings in /app/etc/config.php')
         ;
     }
 

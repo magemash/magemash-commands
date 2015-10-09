@@ -20,6 +20,7 @@ class UrlCommand extends AbstractCommand
     {
         $this
             ->setName('magemash:url')
+            ->setDescription('Resets all URLS to product name with dashes. Add sku with option --sku')
             ->addOption('sku', null, InputOption::VALUE_NONE, 'Append sku to url?')
         ;
     }

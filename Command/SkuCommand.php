@@ -20,6 +20,7 @@ class SkuCommand extends AbstractCommand
     {
         $this
             ->setName('magemash:sku')
+            ->setDescription('Will reset all skus to format 000012 with the last numbers being the product ID')
         ;
     }
 
