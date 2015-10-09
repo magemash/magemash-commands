@@ -2,4 +2,5 @@ commands:
   - \MagentoCommand\Command\UrlCommand
   - \MagentoCommand\Command\ConfigCommand
   - \MagentoCommand\Command\SkuCommand
+  - \MagentoCommand\Command\VisCommand
 
