@@ -30,7 +30,7 @@ class SkuCommand extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $products = \Mage::getResourceModel('catalog/product_collection')
-        ->addAttributeToSelect('sku');
+        ->addAttributeToSelect('*');
 
         foreach ($products as $p) {
 
@@ -40,12 +40,10 @@ class SkuCommand extends AbstractCommand
                 $newSku .= "0";
             }
 
-            $newSku .= $p->getId();
+            $newSku .= (string)$p->getId();
 
             echo $newSku."\n";
 
-//            \Mage::getSingleton('catalog/product_action')
-//                ->updateAttributes(array($p->getId()), array('sku' => $newSku));
             $p->setSku($newSku);
             $p->save();
         }
