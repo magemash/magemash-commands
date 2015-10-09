@@ -11,7 +11,7 @@ use Symfonyconsole\Command\AbstractCommand;
 
 /**
  */
-class UrlCommand extends AbstractCommand
+class SkuCommand extends AbstractCommand
 {
     /**
      *
@@ -19,8 +19,7 @@ class UrlCommand extends AbstractCommand
     protected function configure()
     {
         $this
-            ->setName('magemash:url')
-            ->addOption('sku', null, InputOption::VALUE_NONE, 'Append sku to url?')
+            ->setName('magemash:sku')
         ;
     }
 
@@ -31,25 +30,27 @@ class UrlCommand extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $products = \Mage::getResourceModel('catalog/product_collection')
-            ->addAttributeToSelect('name')
-            ->addAttributeToSelect('sku');
+        ->addAttributeToSelect('sku');
 
         foreach ($products as $p) {
-            if ($input->getOption('sku')) {
-                $rawUrl = $p->getName()." ".$p->getSku();
-            } else {
-                $rawUrl = $p->getName();
+
+            $zeros = 6 - strlen($p->getId());
+            $newSku = "";
+            for ($i=1; $i < $zeros; $i++) {
+                $newSku .= "0";
             }
 
-            $url = \Mage::getModel('catalog/product_url')->formatUrlKey($rawUrl);
+            $newSku .= $p->getId();
 
-            echo $url . "\n";
+            echo $newSku."\n";
 
-            $p->setUrlKey($url);
+//            \Mage::getSingleton('catalog/product_action')
+//                ->updateAttributes(array($p->getId()), array('sku' => $newSku));
+            $p->setSku($newSku);
             $p->save();
         }
 
-        $output->writeln('<info>Url Command</info>');
+        $output->writeln('<info>Sku Command</info>');
     }
 
 }
