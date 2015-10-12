@@ -3,4 +3,5 @@ commands:
   - \MagentoCommand\Command\ConfigCommand
   - \MagentoCommand\Command\SkuCommand
   - \MagentoCommand\Command\VisCommand
+  - \MagentoCommand\Command\BackupCommand
 
