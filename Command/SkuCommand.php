@@ -37,7 +37,7 @@ class SkuCommand extends AbstractCommand
 
             $zeros = 6 - strlen($p->getId());
             $newSku = "";
-            for ($i=1; $i < $zeros; $i++) {
+            for ($i=0; $i < $zeros; $i++) {
                 $newSku .= "0";
             }
 
